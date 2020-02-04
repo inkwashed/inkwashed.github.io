@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition
+      Individual Case Project
+
+      Author: Corinne Adams
+      Date:   02.03.2020
+
+      Filename: index.htm
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Gravitational Pull - Sky Game Fan Site</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+
+</head>
+
+<body>
+    <header>
+      <h1>
+         Gravitational Pull - Sky Game Fan Site
+      </h1>
+    <ul>
+      <li><a href="index.htm">Home</a></li>
+      <li><a href="updates.htm">Updates</a></li>
+      <li><a href="contact.htm">Contact</a></li>
+      <li><a href="about.htm">About</a></li>
+    </ul>
+    </header>
+
+    <article>
+      <h2>Winged Light Calculator</h2>
+      <p>How much Winged Light do you need for Eye of Eden? Find out!</p>
+      <p>Winged Light you currently have:
+        <form>
+          <input type="number" id="lightQty" value=0 />
+          <input type="submit" id="submit" value="Submit" />
+        </form>
+      </p>
+    </article>
+    <script>
+    function calcLight() {
+      var lightQty = document.getElementById("lightQty").value;
+      var lightNeeded = 66 - lightQty;
+      alert("The amount of Winged Light you still need is " + lightNeeded);
+    }
+    document.getElementById("submit").addEventListener("click", calcLight, false);
+    </script>
+</body>
+</html>
