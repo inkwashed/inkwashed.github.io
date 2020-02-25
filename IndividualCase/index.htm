@@ -6,7 +6,7 @@
       Individual Case Project
 
       Author: Corinne Adams
-      Date:   02.03.2020
+      Date:   02.24.2020
 
       Filename: index.htm
    -->
@@ -42,11 +42,34 @@
       </p>
     </article>
     <script>
+    function validateQty() {
+      try {
+        var lightQty = document.getElementById("lightQty").value;
+        if (lightQty < 0) {
+          throw "You can't have a negative amount of Winged Light! Let's try that again...";
+        }
+      }
+      catch (lightQtyError) {
+        window.alert(lightQtyError);
+        return false;
+      }
+      finally {
+        lightQtyValid = true;
+      }
+      return true;
+    }
     function calcLight() {
       var lightQty = document.getElementById("lightQty").value;
-      var lightNeeded = 66 - lightQty;
-      alert("The amount of Winged Light you still need is " + lightNeeded);
+      if (lightQty >= 0) {
+        var lightNeeded = 66 - lightQty;
+        if (lightNeeded < 0) {
+          alert("Are you sure you have that much Winged Light...? You might want to check your numbers.")
+        } else {
+          alert("The amount of Winged Light you still need is " + lightNeeded);
+        }
+      }
     }
+    document.getElementById("submit").addEventListener("click", validateQty, false);
     document.getElementById("submit").addEventListener("click", calcLight, false);
     </script>
 </body>
